@@ -70,7 +70,8 @@ p {
 .container .navbar-brand,
 .bc-footer .brand,
 .btn-default,
-.bs-btn-send {
+.bs-btn-send,
+.bc-footer-nav li a {
   -webkit-transition: all .5s;
   transition: all .5s;
 }
