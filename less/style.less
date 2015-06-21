@@ -194,6 +194,7 @@ p {
           padding: 5px 0 0;
           @media (max-width: 767px) {
             border-top-right-radius: 0;
+            min-width: inherit;
           }
           li {
             @media (max-width: 767px) {
@@ -496,6 +497,9 @@ p {
   padding-bottom: 83px;
   .bc-container {
     padding-left: 43px;
+    @media (max-width: 767px) {
+      padding-left: 10px;
+    }
   }
   h2 {
     padding-top: 64px;

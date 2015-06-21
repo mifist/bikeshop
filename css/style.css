@@ -215,6 +215,7 @@ p {
 @media (max-width: 767px) {
   .bc-header .container .navbar-nav .dropdown .dropdown-menu {
     border-top-right-radius: 0;
+    min-width: inherit;
   }
 }
 @media (max-width: 767px) {
@@ -526,6 +527,11 @@ p {
 }
 .bc-contact .bc-container {
   padding-left: 43px;
+}
+@media (max-width: 767px) {
+  .bc-contact .bc-container {
+    padding-left: 10px;
+  }
 }
 .bc-contact h2 {
   padding-top: 64px;
