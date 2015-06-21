@@ -176,11 +176,26 @@ p {
          background-color: #fcff19;
          color: #000;
        }
-        .dropdown-toggle:hover:before {
-          content: "";
-          background: url('../img/arrow-down.png') 20% 50% no-repeat;
-          padding-right: 30px;
+        .dropdown-toggle {
+          @media (min-width: 768px) {
+            &:hover:before {
+              content: "";
+              background: url('../img/arrow-down.png') 20% 50% no-repeat;
+              padding-right: 30px;
+            }
+          }
+          @media (max-width: 767px) {
+            &:before,
+            &hover:before {
+            content: "";
+            background: url('../img/arrow-down.png') 20% 50% no-repeat;
+            padding-right: 30px;
+          }
+          }
         }
+
+
+
         .dropdown-menu {
           min-width: 218px;
           background: #fcff19;
@@ -202,6 +217,12 @@ p {
               float: right;
               text-align: right;
               padding-right: 30px;
+            }
+            @media (max-width: 545px) {
+              width: 100%;
+              float: right;
+              text-align: left;
+              padding-right: 0;
             }
           }
           a {
