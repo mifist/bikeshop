@@ -30,7 +30,7 @@ h1 {
   line-height: 40px;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 0 0 30px 0;
+  margin: 0 0 21px 0;
 }
 h2,
 h3 {
@@ -41,9 +41,15 @@ h2 {
   font-size: 28px;
   line-height: 38px;
   font-weight: 700;
-  padding-top: 72px;
+  padding-top: 67px;
+  padding-left: 12px;
   text-transform: uppercase;
   margin: 0;
+}
+@media (max-width: 767px) {
+  h2 {
+    padding-left: 0;
+  }
 }
 h3 {
   font-size: 15px;
@@ -57,6 +63,7 @@ h4 {
   color: #000;
   margin-bottom: 7px;
   margin-top: 20px;
+  font-weight: 700;
 }
 p {
   font-size: 15px;
@@ -94,7 +101,6 @@ p {
   filter: alpha(opacity=99);
 }
 .bc-header {
-  height: 100vh;
   background: #000
   /*------NAVIGATIONS---------*/
   /*------CAROUSEL---------*/
@@ -103,46 +109,56 @@ p {
   max-width: 1117px;
   padding-left: 10px;
   padding-right: 10px;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
   position: absolute;
   top: 20px;
   left: 0;
   right: 0;
   z-index: 5;
 }
-.bc-header .container .navbar-toggle {
+.bc-header .container .navbar-header .navbar-toggle {
   border-color: #fcff19;
   margin-top: 18px;
 }
-.bc-header .container .navbar-toggle .icon-bar {
+.bc-header .container .navbar-header .navbar-toggle .icon-bar {
   background-color: #fcff19;
 }
 .bc-header .container .navbar-collapse {
   padding-right: 0;
 }
 .bc-header .container .navbar-nav {
-  margin-top: 14px;
+  margin-top: 19px;
 }
 @media (max-width: 767px) {
   .bc-header .container .navbar-nav {
+    float: right;
     width: 100%;
-    padding-left: 10px;
+    text-align: right;
+    margin-right: 10px;
   }
 }
 .bc-header .container .navbar-nav > li {
   position: relative;
   top: 0;
+  margin-left: 8px;
 }
 @media (max-width: 767px) {
   .bc-header .container .navbar-nav > li {
-    display: inline-block;
+    width: 49%;
+    float: right;
   }
 }
 .bc-header .container .navbar-nav > li .shop {
   padding-right: 0;
-  padding-top: 10px;
+  padding-top: 6px;
+  margin-left: 8px;
   opacity: .5;
   filter: alpha(opacity=50);
+}
+@media (max-width: 767px) {
+  .bc-header .container .navbar-nav > li .shop {
+    padding-right: 10px;
+  }
 }
 .bc-header .container .navbar-nav > li .shop:hover,
 .bc-header .container .navbar-nav > li .shop:active,
@@ -157,7 +173,7 @@ p {
   color: #ffffff;
   font-weight: 700;
   border-radius: 10px;
-  padding: 14px 14px;
+  padding: 10px 13px;
 }
 .bc-header .container .navbar-nav > li a:hover,
 .bc-header .container .navbar-nav > li .open > a:hover,
@@ -168,21 +184,24 @@ p {
   background-color: #fcff19;
   color: #000;
 }
+.bc-header .container .navbar-nav .dropdown.open .dropdown-toggle {
+  padding-bottom: 18px;
+}
 .bc-header .container .navbar-nav .dropdown.open a {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-}
-@media (max-width: 767px) {
-  .bc-header .container .navbar-nav .dropdown.open a {
-    border-radius: 10px;
-  }
 }
 .bc-header .container .navbar-nav .dropdown:visited {
   background-color: #fcff19;
   color: #000;
 }
+.bc-header .container .navbar-nav .dropdown .dropdown-toggle:hover:before {
+  content: "";
+  background: url('../img/arrow-down.png') 20% 50% no-repeat;
+  padding-right: 30px;
+}
 .bc-header .container .navbar-nav .dropdown .dropdown-menu {
-  min-width: 220px;
+  min-width: 218px;
   background: #fcff19;
   border-radius: 10px;
   border-top-left-radius: 0;
@@ -191,10 +210,19 @@ p {
   border: 0;
   box-shadow: none;
   text-transform: uppercase;
+  padding: 5px 0 0;
 }
 @media (max-width: 767px) {
   .bc-header .container .navbar-nav .dropdown .dropdown-menu {
-    display: none;
+    border-top-right-radius: 0;
+  }
+}
+@media (max-width: 767px) {
+  .bc-header .container .navbar-nav .dropdown .dropdown-menu li {
+    width: 100%;
+    float: right;
+    text-align: right;
+    padding-right: 30px;
   }
 }
 .bc-header .container .navbar-nav .dropdown .dropdown-menu a {
@@ -213,6 +241,12 @@ p {
 .bc-header .carousel .carousel-control.right,
 .bc-header .carousel .carousel-control.left {
   background-image: none;
+}
+@media (max-width: 767px) {
+  .bc-header .carousel .carousel-control.right,
+  .bc-header .carousel .carousel-control.left {
+    top: 55%;
+  }
 }
 .bc-header .carousel .glyphicon {
   opacity: .5;
@@ -233,8 +267,10 @@ p {
   right: 50%;
 }
 .bc-header .carousel .carousel-indicators {
+  position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
   z-index: 15;
   width: 100%;
   margin: 0;
@@ -249,15 +285,29 @@ p {
   border: 0;
   background-color: #aba8a6;
 }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .bc-header .carousel .carousel-indicators li {
+    width: 20%;
+  }
+}
 .bc-header .carousel .carousel-indicators .active {
-  height: 5px;
-  width: 20%;
+  height: 4px;
+  width: 19%;
   background-color: #fcff19;
+}
+.bc-header .carousel .carousel-inner {
+  osition: relative;
+  width: 100%;
 }
 .bc-header .carousel .carousel-inner .item {
   background-position: 50%, 50%;
   background-size: cover;
   height: 100vh;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .bc-header .carousel .carousel-inner .item {
+    min-height: 877px;
+  }
 }
 .bc-header .carousel .carousel-inner .item:before {
   content: "";
@@ -267,11 +317,23 @@ p {
   left: 0;
   right: 0;
   background: #360808;
-  opacity: .49;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=49);
+  opacity: 0.49;
   filter: alpha(opacity=49);
+  zoom: 1
+  /* для элемента в ИЕ, у которого не заданы width и height */
+}
+.bc-header .carousel .carousel-inner .item img {
+  width: 100%;
+  height: 100%;
 }
 .bc-header .carousel .carousel-inner .item .carousel-caption {
-  bottom: 37%;
+  bottom: 39.4%;
+}
+@media (max-width: 767px) {
+  .bc-header .carousel .carousel-inner .item .carousel-caption {
+    bottom: 25%;
+  }
 }
 .bc-header .carousel .carousel-inner .item .carousel-caption p {
   line-height: 32px;
@@ -290,8 +352,8 @@ p {
   background: #000;
   border: 1px solid #000000;
   border-radius: 10px;
-  padding: 16px 28px;
-  margin: 35px auto 0 auto;
+  padding: 12px 19px;
+  margin: 31px auto 0 auto;
   text-decoration: none;
 }
 .bc-header .carousel .carousel-inner .item .carousel-caption a:hover {
@@ -301,8 +363,9 @@ p {
 }
 .bc-header .bc-click {
   position: absolute;
-  bottom: 28px;
-  left: 50%;
+  bottom: 18px;
+  left: 0;
+  right: 0;
   z-index: 15;
   display: inline-block;
   width: 66px;
@@ -311,6 +374,7 @@ p {
   background-position: 0 0;
   -webkit-transition: all .3s;
   transition: all .3s;
+  margin: auto;
 }
 .bc-header .bc-click:hover,
 .bc-header .bc-click:active {
@@ -332,7 +396,7 @@ p {
   max-width: 346px;
   max-height: 288px;
   position: relative;
-  margin: 72px auto 0 auto;
+  margin: 68px auto 0 auto;
   overflow: hidden;
   display: block;
   width: 100%;
@@ -364,8 +428,9 @@ p {
           transform: rotate(39.7deg) scale(1.5);
 }
 .bc-categories .cat-item .store {
-  visibility: hidden;
+  display: none;
   opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
   filter: alpha(opacity=0);
   -webkit-transition: all .6s;
   transition: all .6s;
@@ -374,7 +439,7 @@ p {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .bc-categories .cat-item:hover .store {
-  visibility: visible;
+  display: inline-block;
   opacity: .99;
   filter: alpha(opacity=99);
 }
@@ -387,12 +452,22 @@ p {
   left: 0;
   right: 0;
 }
+@media (max-width: 1144px) {
+  .bc-categories .cat-item .cat-about {
+    top: 40%;
+  }
+}
+@media (max-width: 980px) {
+  .bc-categories .cat-item .cat-about {
+    top: 27%;
+  }
+}
 .bc-categories .cat-item .cat-about p {
   text-align: center;
   font-size: 16px;
   color: #ffffff;
 }
-.bc-categories .cat-item a {
+.bc-categories .cat-item .store {
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
@@ -402,7 +477,10 @@ p {
   padding: 0 20px;
   position: absolute;
   bottom: 38px;
-  left: 33%;
+  width: 124px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 /*------POPULAR BIKES---------*/
 .bc-popular {
@@ -411,6 +489,12 @@ p {
 }
 .bc-popular h2 {
   margin-bottom: 53px;
+  padding-left: 61px;
+}
+@media (max-width: 767px) {
+  .bc-popular h2 {
+    padding-left: 0;
+  }
 }
 .bc-popular .owl-carousel .item {
   width: 100%;
@@ -440,9 +524,13 @@ p {
   background-size: cover;
   padding-bottom: 83px;
 }
+.bc-contact .bc-container {
+  padding-left: 43px;
+}
 .bc-contact h2 {
-  padding-top: 65px;
-  padding-bottom: 45px;
+  padding-top: 64px;
+  padding-bottom: 46px;
+  padding-left: 0;
 }
 .bc-contact p {
   text-align: center;
@@ -451,10 +539,13 @@ p {
 .bc-contact .bc-contact-form {
   font-style: italic;
   max-width: 470px;
-  padding-top: 45px;
+  padding-top: 37px;
   padding-left: 10px;
   padding-right: 10px;
   margin: 0 auto;
+}
+.bc-contact .bc-contact-form .form-group {
+  margin-bottom: 20px;
 }
 .bc-contact .bc-contact-form .bc-form-horizontal .form-group {
   width: 47.4%;
@@ -487,7 +578,21 @@ select,
 select {
   outline: inherit;
   margin-top: 20px;
-  padding: 0 18px 0 22px;
+  padding: 0 16px 0 15px;
+  background-image: url('../img/arrow-down.png');
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  padding-top: 5px;
+  padding-bottom: 11px;
+  width: 143px;
+}
+select:hover {
+  cursor: pointer;
 }
 .btn-default {
   margin-top: 20px;
@@ -516,15 +621,16 @@ select {
   background-color: #fcff19;
 }
 .form-control {
-  padding-left: 25px;
+  padding: 10px 0 10px 21px;
 }
 .form-control:focus {
   border-color: #565656;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(56, 56, 56, 0.6);
 }
 textarea.form-control {
-  padding-top: 25px;
+  padding-top: 19px;
   line-height: inherit;
+  padding-bottom: 11px;
 }
 .owl-carousel .owl-item {
   float: left;
@@ -535,11 +641,37 @@ textarea.form-control {
   background-color: #fcff19;
   padding: 17px 0;
 }
-.bc-footer .bc-container {
-  padding-right: 0;
+.bc-footer .brand {
+  float: left;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .bc-footer .brand {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: none;
+  }
+}
+.bc-footer .bc-footer-nav {
+  float: right;
+}
+@media (max-width: 767px) {
+  .bc-footer .bc-footer-nav {
+    text-align: center;
+    float: none;
+  }
 }
 .bc-footer ul {
   margin: 0;
+}
+.bc-footer ul .extras {
+  padding-right: 0;
+}
+@media (max-width: 767px) {
+  .bc-footer ul .extras {
+    padding-right: 11px;
+  }
 }
 .bc-footer ul li a {
   background-color: inherit;

@@ -23,7 +23,7 @@ h1 {
   line-height: 40px;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 0 0 30px 0;
+  margin: 0 0 21px 0;
 }
 h2, h3 {
   text-align: center;
@@ -33,9 +33,13 @@ h2 {
   font-size: 28px;
   line-height: 38px;
   font-weight: 700;
-  padding-top: 72px;
+  padding-top: 67px;
+  padding-left: 12px;
   text-transform: uppercase;
   margin: 0;
+  @media (max-width: 767px) {
+    padding-left: 0;
+  }
 }
 h3 {
   font-size: 15px;
@@ -49,6 +53,7 @@ h4 {
   color: #000;
   margin-bottom: 7px;
   margin-top: 20px;
+  font-weight: 700;
 }
 p {
   font-size: 15px;
@@ -85,46 +90,55 @@ p {
   }
 }
 .bc-header {
-  height: 100vh;
   background: #000;
   /*------NAVIGATIONS---------*/
   .container {
     max-width: 1117px;
     padding-left: 10px;
     padding-right: 10px;
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
     position: absolute;
     top: 20px;
     left: 0;
     right: 0;
     z-index: 5;
-    .navbar-toggle {
-      border-color: #fcff19;
-      margin-top: 18px;
-      .icon-bar {
-        background-color: #fcff19;
+    .navbar-header {
+      .navbar-toggle {
+        border-color: #fcff19;
+        margin-top: 18px;
+        .icon-bar {
+          background-color: #fcff19;
+        }
       }
     }
     .navbar-collapse {
       padding-right: 0;
     }
     .navbar-nav {
-      margin-top: 14px;
+      margin-top: 19px;
       @media (max-width: 767px) {
+        float: right;
         width: 100%;
-        padding-left: 10px;
+        text-align: right;
+        margin-right: 10px;
       }
       & > li {
         position: relative;
         top: 0;
+        margin-left: 8px;
         @media (max-width: 767px) {
-          display: inline-block;
+          width: 49%;
+          float: right;
         }
         .shop {
           padding-right: 0;
-          padding-top: 10px;
+          padding-top: 6px;
+          margin-left: 8px;
           opacity: .5;
           filter: alpha(opacity=50);
+          @media (max-width: 767px) {
+            padding-right: 10px;
+          }
           &:hover,
           &:active,
           &:focus{
@@ -138,7 +152,7 @@ p {
           color: #ffffff;
           font-weight: 700;
           border-radius: 10px;
-          padding: 14px 14px;
+          padding: 10px 13px;
           &:hover,
           &:active,
           &:focus {
@@ -147,23 +161,28 @@ p {
           }
         }
       }
-      .dropdown.open a {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        @media (max-width: 767px) {
-          border-radius: 10px;
+      .dropdown.open {
+        .dropdown-toggle {
+          padding-bottom: 18px;
         }
+        a {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
       }
       .dropdown {
        &:visited {
          background-color: #fcff19;
          color: #000;
        }
+        .dropdown-toggle:hover:before {
+          content: "";
+          background: url('../img/arrow-down.png') 20% 50% no-repeat;
+          padding-right: 30px;
+        }
         .dropdown-menu {
-          @media (max-width: 767px) {
-            display: none;
-          }
-          min-width: 220px;
+          min-width: 218px;
           background: #fcff19;
           border-radius: 10px;
           border-top-left-radius: 0;
@@ -172,6 +191,18 @@ p {
           border: 0;
           box-shadow: none;
           text-transform: uppercase;
+          padding: 5px 0 0;
+          @media (max-width: 767px) {
+            border-top-right-radius: 0;
+          }
+          li {
+            @media (max-width: 767px) {
+              width: 100%;
+              float: right;
+              text-align: right;
+              padding-right: 30px;
+            }
+          }
           a {
             padding: 8px 14px;
             border-radius: inherit;
@@ -194,6 +225,9 @@ p {
     .carousel-control.right,
     .carousel-control.left {
         background-image: none;
+      @media (max-width: 767px) {
+        top: 55%;
+      }
       }
     .glyphicon {
       opacity: .5;
@@ -214,8 +248,10 @@ p {
       right: 50%;
     }
     .carousel-indicators {
+      position: absolute;
       bottom: 0;
       left: 0;
+      right: 0;
       z-index: 15;
       width: 100%;
       margin: 0;
@@ -225,19 +261,32 @@ p {
         height: 2px;
         margin: 0;
         padding: 0;
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+          width: 20%;
+        }
         width: 20%;
         border: 0;
         background-color: #aba8a6;
       }
       .active {
-        height: 5px;
-        width: 20%;
+        height: 4px;
+        width: 19%;
         background-color: #fcff19;
       }
     }
+    .carousel-inner {
+      osition: relative;
+      width: 100%;
+    }
     .carousel-inner .item {
       background-position: 50%, 50%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
       background-size: cover;
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        min-height: 877px;
+      }
       height: 100vh;
       &:before {
         content: "";
@@ -247,11 +296,20 @@ p {
         left: 0;
         right: 0;
         background: #360808;
-        opacity: .49;
+        filter:progid:DXImageTransform.Microsoft.Alpha(opacity=49);
+        opacity: 0.49;
         filter: alpha(opacity=49);
+        zoom: 1; /* для элемента в ИЕ, у которого не заданы width и height */
+      }
+      img {
+        width: 100%;
+        height: 100%;
       }
       .carousel-caption {
-        bottom: 37%;
+        bottom: 39.4%;
+        @media (max-width: 767px) {
+          bottom: 25%;
+        }
         p {
           line-height: 32px;
           color: #ffffff;
@@ -269,8 +327,8 @@ p {
           background: #000;
           border: 1px solid #000000;
           border-radius: 10px;
-          padding: 16px 28px;
-          margin: 35px auto 0 auto;
+          padding: 12px 19px;
+          margin: 31px auto 0 auto;
           text-decoration: none;
           &:hover {
             color: #fcff19;
@@ -283,8 +341,9 @@ p {
   }
   .bc-click {
     position: absolute;
-    bottom: 28px;
-    left: 50%;
+    bottom: 18px;
+    left: 0;
+    right: 0;
     z-index: 15;
     display: inline-block;
     width: 66px;
@@ -293,6 +352,7 @@ p {
     background-position: 0 0;
     -webkit-transition: all .3s;
     transition: all .3s;
+    margin: auto;
     &:hover, &:active {
       background-position: 100% 50%;
     }
@@ -314,7 +374,7 @@ p {
     max-width: 346px;
     max-height: 288px;
     position: relative;
-    margin: 72px auto 0 auto;
+    margin: 68px auto 0 auto;
     overflow: hidden;
     display: block;
     width: 100%;
@@ -337,8 +397,9 @@ p {
       transform: rotate(39.7deg) scale(1.5);
     }
     .store {
-      visibility: hidden;
+      display: none;
       opacity: 0;
+      filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
       filter: alpha(opacity=0);
       -webkit-transition: all .6s;
       transition: all .6s;
@@ -347,7 +408,7 @@ p {
       }
     }
     &:hover .store {
-      visibility: visible;
+      display: inline-block;
       opacity: .99;
       filter: alpha(opacity=99);
     }
@@ -359,13 +420,19 @@ p {
       top: 48%;
       left: 0;
       right: 0;
+      @media (max-width: 1144px) {
+        top: 40%;
+      }
+      @media (max-width: 980px) {
+        top: 27%;
+      }
       p {
         text-align: center;
         font-size: 16px;
         color: #ffffff;
       }
     }
-    a {
+    .store {
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
@@ -375,7 +442,10 @@ p {
       padding: 0 20px;
       position: absolute;
       bottom: 38px;
-      left: 33%;
+      width: 124px;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
   }
 }
@@ -385,6 +455,10 @@ p {
   padding-bottom: 30px;
   h2 {
     margin-bottom: 53px;
+    padding-left: 61px;
+    @media (max-width: 767px) {
+      padding-left: 0;
+    }
   }
   .owl-carousel {
     .item {
@@ -398,7 +472,6 @@ p {
         font-weight: 300;
       }
     }
-
     .customNavigation{
       text-align: center;
     }
@@ -417,11 +490,17 @@ p {
 .bc-contact {
   background: url("../img/contact_us_bg.jpg") no-repeat 50% 50%;
   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   padding-bottom: 83px;
+  .bc-container {
+    padding-left: 43px;
+  }
   h2 {
-    padding-top: 65px;
-    padding-bottom: 45px;
+    padding-top: 64px;
+    padding-bottom: 46px;
+    padding-left: 0;
   }
   p {
     text-align: center;
@@ -430,10 +509,13 @@ p {
   .bc-contact-form {
     font-style: italic;
     max-width: 470px;
-    padding-top: 45px;
+    padding-top: 37px;
     padding-left: 10px;
     padding-right: 10px;
     margin: 0 auto;
+    .form-group {
+      margin-bottom: 20px;
+    }
     .bc-form-horizontal {
       .form-group {
         width: 47.4%;
@@ -465,7 +547,21 @@ select,
 select {
   outline: inherit;
   margin-top: 20px;
-  padding: 0 18px 0 22px;
+  padding: 0 16px 0 15px;
+  background-image: url('../img/arrow-down.png');
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  padding-top: 5px;
+  padding-bottom: 11px;
+  width: 143px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .btn-default {
   margin-top: 20px;
@@ -494,7 +590,7 @@ select {
   }
 }
 .form-control {
-  padding-left: 25px;
+  padding: 10px 0 10px 21px;
   &:focus {
       border-color: #565656;
       -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(54, 54, 54, 0.60);
@@ -502,8 +598,9 @@ select {
   }
 }
 textarea.form-control {
-  padding-top: 25px;
+  padding-top: 19px;
   line-height: inherit;
+  padding-bottom: 11px;
 }
 .owl-carousel .owl-item{
   float: left;
@@ -513,11 +610,31 @@ textarea.form-control {
 .bc-footer {
   background-color: #fcff19;
   padding: 17px 0;
-  .bc-container {
-    padding-right: 0;
+  .brand {
+    float: left;
+    text-align: center;
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      float: none;
+    }
+  }
+  .bc-footer-nav {
+    float: right;
+    @media (max-width: 767px) {
+      text-align: center;
+      float: none;
+    }
   }
   ul {
     margin: 0;
+    .extras {
+      padding-right: 0;
+      @media (max-width: 767px) {
+        padding-right: 11px;
+      }
+    }
     li a {
       background-color: inherit;
       color: #000;
@@ -534,7 +651,6 @@ textarea.form-control {
     }
   }
 }
-
 /*------@MEDIA---------*/
 @media (max-width: 1500px) {
   .owl-carousel .owl-item {
