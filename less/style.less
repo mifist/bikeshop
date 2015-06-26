@@ -115,22 +115,32 @@ p {
     }
     .navbar-collapse {
       padding-right: 0;
+      margin: 0;
     }
     .navbar-nav {
       margin-top: 19px;
       @media (max-width: 767px) {
         float: right;
-        width: 100%;
+        width: 60%;
         text-align: right;
         margin-right: 10px;
+        background-color: rgba(97, 100, 17, 0.70);
+        z-index: 20;
+        border-radius: 10px;
+      }
+      @media (max-width: 545px) {
+        width: 100%;
       }
       & > li {
         position: relative;
         top: 0;
         margin-left: 8px;
         @media (max-width: 767px) {
-          width: 49%;
+          width: 60%;
           float: right;
+        }
+        @media (max-width: 545px) {
+          width: 100%;
         }
         .shop {
           padding-right: 0;
@@ -180,18 +190,20 @@ p {
        }
         .dropdown-toggle {
           @media (min-width: 768px) {
-            &:hover:before {
+            &:hover:after {
               content: "";
               background: url('../img/arrow-down.png') 20% 50% no-repeat;
-              padding-right: 30px;
+              padding-left: 30px;
+              margin-left: 10px;
             }
           }
           @media (max-width: 767px) {
-            &:before,
-            &hover:before {
+            &:after,
+            &hover:after {
             content: "";
             background: url('../img/arrow-down.png') 20% 50% no-repeat;
             padding-right: 30px;
+              margin-left: 10px;
           }
           }
         }
@@ -262,10 +274,12 @@ p {
     }
     .glyphicon-chevron-left {
       background: url("../img/left_button.png") no-repeat;
+      margin-left: 0;
       left: 50%;
     }
     .glyphicon-chevron-right {
       background: url("../img/right_button.png") no-repeat;
+      margin-right: 0;
       right: 50%;
     }
     .carousel-indicators {
@@ -296,7 +310,7 @@ p {
       }
     }
     .carousel-inner {
-      osition: relative;
+      position: relative;
       width: 100%;
     }
     .carousel-inner .item {
@@ -320,7 +334,7 @@ p {
         filter:progid:DXImageTransform.Microsoft.Alpha(opacity=49);
         opacity: 0.49;
         filter: alpha(opacity=49);
-        zoom: 1; /* для элемента в ИЕ, у которого не заданы width и height */
+        zoom: 1;
       }
       img {
         width: 100%;
@@ -329,7 +343,7 @@ p {
       .carousel-caption {
         bottom: 39.4%;
         @media (max-width: 767px) {
-          bottom: 25%;
+          bottom: 30%;
         }
         p {
           line-height: 32px;
@@ -362,7 +376,7 @@ p {
   }
   .bc-click {
     position: absolute;
-    bottom: 18px;
+    bottom: 38px;
     left: 0;
     right: 0;
     z-index: 15;
@@ -371,8 +385,6 @@ p {
     height: 77px;
     background-image: url('../img/click.png');
     background-position: 0 0;
-    -webkit-transition: all .3s;
-    transition: all .3s;
     margin: auto;
     &:hover, &:active {
       background-position: 100% 50%;
@@ -466,10 +478,11 @@ p {
       padding: 0 20px;
       position: absolute;
       bottom: 38px;
-      width: 124px;
+      width: 125px;
       left: 0;
       right: 0;
       margin: auto;
+      line-height: 39px;
     }
   }
 }
@@ -494,6 +507,21 @@ p {
         font-size: 15px;
         color: #000;
         font-weight: 300;
+      }
+    }
+    .bc-bike-about {
+      @media (max-width: 767px) {
+        max-width: 100%;
+        .item-about {
+          width: 100%;
+        }
+        .btn-default {
+          width: 45%;
+        }
+        form {
+          width: 50%;
+          float: left !important;
+        }
       }
     }
     .customNavigation{
@@ -583,7 +611,6 @@ select {
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  padding-top: 5px;
   padding-bottom: 6px;
   width: 143px;
   &:hover {
